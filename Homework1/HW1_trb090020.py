@@ -82,7 +82,7 @@ def confirm_path(filepath):
 
 
 if __name__ == '__main__':
-    # 1 argument expected, otherwise the program halts
+    # One argument expected, otherwise the program halts
     if not len(sys.argv) == 2:
         print('Provide the path to the data file as an argument')
     else:
