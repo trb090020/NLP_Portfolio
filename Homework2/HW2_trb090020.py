@@ -5,8 +5,10 @@
 import sys
 import pathlib
 
+
 def calcdiv(pathobj):
     """Calculates and prints the lexical diversity of the text"""
+
 
 def preprocess(pathobj):
     """
