@@ -4,30 +4,37 @@
 
 import sys
 import pathlib
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 
 
 def calcdiv(pathobj):
     """Calculates and prints the lexical diversity of the text"""
+    with open(pathobj, 'r') as f:
+        text = f.read()
+
+    text = text.replace('\n', ' ')
+    tokens = word_tokenize(text)
+    tokens = [t.lower() for t in tokens if t.isalpha() and t not in stopwords.words('english')]
+    token_set = set(tokens)
+    print("Lexical diversity: %.2f" % (len(token_set) / len(tokens)))
+    return tokens
 
 
-def preprocess(pathobj):
+def preprocess(tokens):
     """
     Preprocesses the raw text:
-    1. convert all words to lower-case
-    2. remove tokens that are not alphabetical, remove NLTK stopwords,
-       and any words with less than 6 letters
-    3. lemmatize the tokens
-    4. print the first 20 tagged parts-of-speech (POS)
-    5. create list of only those lemmas that are nouns
-    6. print the number of tokens from step 1 and the number of nouns from step 5
-    7. return tokens from step 1 and nouns from step 5
-    :param pathobj:
-    :return: tokens, nouns
+    1. lemmatize the tokens
+    2. print the first 20 tagged parts-of-speech (POS)
+    3. create list of only those lemmas that are nouns
+    4. print the number of tokens and the number of nouns
+    5. return nouns from step 4
+    :param tokens:
+    :return: nouns
     """
-    tokens = []
     nouns = []
 
-    return tokens, nouns
+    return nouns
 
 
 def makegamedict(tokenlist, nounlist):
@@ -57,10 +64,10 @@ if __name__ == '__main__':
         # Check if the file exists
         if confirm_path(datafile):
             # process the text
-            calcdiv(datafile)
-            tokens, nouns = preprocess(datafile)
-            gamedict = makegamedict(tokens, nouns)
-            guessgame(gamedict)
+            tokens = calcdiv(datafile)
+            # nouns = preprocess(tokens)
+            # gamedict = makegamedict(tokens, nouns)
+            # guessgame(gamedict)
 
         else:
             print('The file provided does not exist')
