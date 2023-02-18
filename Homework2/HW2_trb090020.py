@@ -4,8 +4,10 @@
 
 import sys
 import pathlib
+from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 
 def calcdiv(pathobj):
@@ -15,9 +17,13 @@ def calcdiv(pathobj):
 
     text = text.replace('\n', ' ')
     tokens = word_tokenize(text)
+    token_set = set(tokens)
+    print("Lexical diversity before removing non-alpha tokens and stopwords: %.2f" % (len(token_set) / len(tokens)))
     tokens = [t.lower() for t in tokens if t.isalpha() and t not in stopwords.words('english')]
     token_set = set(tokens)
-    print("Lexical diversity: %.2f" % (len(token_set) / len(tokens)))
+    print("Lexical diversity after removing non-alpha tokens and stopwords: %.2f" % (len(token_set) / len(tokens)))
+    # only keep words with length > 5
+    tokens = [t for t in tokens if len(t) > 5]
     return tokens
 
 
@@ -33,7 +39,20 @@ def preprocess(tokens):
     :return: nouns
     """
     nouns = []
+    wnl = WordNetLemmatizer()
+    lemmas = [wnl.lemmatize(t) for t in tokens]
+    uniq_lemmas = list(set(lemmas))
+    pos = pos_tag(uniq_lemmas)
+    print("First 20 tagged unique lemmas:")
+    for i in range(20):
+        print(pos[i])
 
+    for u in uniq_lemmas:
+        if u[1] == 'NN' or 'NNP' or 'NNS':
+            nouns.append(u)
+
+    print("Number of tokens:", len(tokens), sep=' ')
+    print("Number of nouns:", len(nouns), sep=' ')
     return nouns
 
 
@@ -65,7 +84,7 @@ if __name__ == '__main__':
         if confirm_path(datafile):
             # process the text
             tokens = calcdiv(datafile)
-            # nouns = preprocess(tokens)
+            nouns = preprocess(tokens)
             # gamedict = makegamedict(tokens, nouns)
             # guessgame(gamedict)
 
