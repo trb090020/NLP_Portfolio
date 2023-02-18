@@ -11,7 +11,12 @@ from nltk.stem import WordNetLemmatizer
 
 
 def calcdiv(pathobj):
-    """Calculates and prints the lexical diversity of the text"""
+    """
+    Calculates and prints the lexical diversity of the text. Since the text
+    is tokenized to perform this analysis, the token
+    :param pathobj: a pathlib Path object
+    :return: tokens: tokenized text
+    """
     with open(pathobj, 'r') as f:
         text = f.read()
 
@@ -38,34 +43,34 @@ def preprocess(tokens):
     :param tokens:
     :return: nouns
     """
-    nouns = []
     wnl = WordNetLemmatizer()
     lemmas = [wnl.lemmatize(t) for t in tokens]
     uniq_lemmas = list(set(lemmas))
-    pos = pos_tag(uniq_lemmas)
+    tag_lemmas = pos_tag(uniq_lemmas)
+
     print("First 20 tagged unique lemmas:")
     for i in range(20):
-        print(pos[i])
-
-    for u in uniq_lemmas:
-        if u[1] == 'NN' or 'NNP' or 'NNS':
-            nouns.append(u)
+        print(tag_lemmas[i])
+    nouns = [lemma[0] for lemma in tag_lemmas if lemma[1] == 'NN']
 
     print("Number of tokens:", len(tokens), sep=' ')
-    print("Number of nouns:", len(nouns), sep=' ')
+    print("Number of unique lemmas:", len(uniq_lemmas), sep=' ')
+    print("Number of unique nouns:", len(nouns), sep=' ')
+
     return nouns
 
 
-def makegamedict(tokenlist, nounlist):
+def makegamedata(tokenlist, nounlist):
     """Returns a dictionary of {noun:count of noun in tokenlist}"""
-    gamedict = {}
-
+    gamedict = {n: tokenlist.count(n) for n in nounlist}
     return gamedict
 
 
 def guessgame(gamedict):
     """Plays Word Guess Game with the user"""
     print("Welcome to Word Guess Game!")
+    top_fifty = [sorted(gamedict, key=gamedict.get, reverse=True)]
+    print(top_fifty)
 
 
 def confirm_path(filepath):
@@ -83,10 +88,10 @@ if __name__ == '__main__':
         # Check if the file exists
         if confirm_path(datafile):
             # process the text
-            tokens = calcdiv(datafile)
-            nouns = preprocess(tokens)
-            # gamedict = makegamedict(tokens, nouns)
-            # guessgame(gamedict)
+            token_data = calcdiv(datafile)
+            noun_data = preprocess(token_data)
+            game_data = makegamedata(token_data, noun_data)
+            guessgame(game_data)
 
         else:
             print('The file provided does not exist')
