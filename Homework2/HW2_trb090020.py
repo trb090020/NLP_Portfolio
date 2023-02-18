@@ -69,68 +69,110 @@ def makegamedata(tokenlist, nounlist):
 def guessgame(gamedict):
     """Plays Word Guess Game with the user"""
     print("\n****** Welcome to Word Guess Game! ******")
-    top_fifty = sorted(gamedict, key=gamedict.get, reverse=True)
-    # Get a random element from top_fifty.
-    # Generate a random number (integer) between 0 and 49.
-    rand_num = random.randint(0, 49)
-    goal = top_fifty[rand_num]
-    board = ["_" for i in goal]
+    top_nouns = sorted(gamedict, key=gamedict.get, reverse=True)
+    top_nouns = top_nouns[:50]
+    # Get a random element from top_nouns.
+    # Generate a random number (integer) between 0 and the length of top_nouns - 1.
+    rand_num = random.randint(0, len(top_nouns) - 1)
+    goal = top_nouns[rand_num]
     guesses = 5
-    letters = []  # guessed letters
-    print("Cheat for the demo? (Y/anything else)")
-    x = str(input())
-    if x in ['y', 'Y']:
-        print(goal)
+
+    while True:
+        print("Cheat for the demo? (Y/anything else)")
+        user_input = str(input())
+        if user_input in ['y', 'Y']:
+            print(goal)
+        guesses = guessloop(goal, guesses)
+        if guesses < 1:
+            print('**************************************************')
+            print("Exiting...")
+            print('**************************************************')
+            break
+        print('**************************************************')
+        print("Keep playing? (Y/anything else)")
+        print('**************************************************')
+        user_input = str(input())
+        if user_input in ['y', 'Y']:
+            top_nouns.remove(goal)
+            if len(top_nouns) < 1:
+                print('**************************************************')
+                print("You used all the words. Exiting...")
+                print('**************************************************')
+                break
+            rand_num = random.randint(0, len(top_nouns) - 1)
+            goal = top_nouns[rand_num]
+            continue
+        else:
+            print('**************************************************')
+            print("Exiting...")
+            print('**************************************************')
+            break
+
+
+def guessloop(goal, guesses):
+    board = ['_' for letter in goal]
+    letters = []
     while True:
         # Beginning of round - show board and remaining guesses
         print(guesses, " guesses remaining", sep='')
         print("Guessed letters: ", letters, sep='')
         for letter in board:
             print(letter, end=' ')
+        print('\n')
         # If zero guesses remain, print game over - failure message and break
         if guesses < 1:
-            print("\nYou ran out of guesses, game over!")
+            print('**************************************************')
+            print("You ran out of guesses, game over!")
+            print('**************************************************')
             break
         # Prompt for user input
-        print("\nTry to guess a letter in the word (or enter ! to give up):")
+        print("Try to guess a letter in the word (or enter ! to give up):")
         x = str(input())
         # Check for exclamation mark - give up
         if x in ['!']:
             break
         # Check that the input was a single letter
         if not len(x) == 1 and x.isalpha():
+            print('**************************************************')
             print("Invalid input! You entered: ", x, sep='')
             print("Please only enter a single letter\n")
+            print('**************************************************')
+            continue
+        x = x.lower()
+        if x in letters:
+            print('**************************************************')
+            print("You already guessed ", x, ". Try a different letter.", sep='')
             print('**************************************************')
             continue
         # Check if the input letter is in the word
         if x not in goal:
             guesses -= 1
             letters.append(x)
-            print("Bad luck! You lose a guess.\n")
+            print('**************************************************')
+            print("Bad luck! You lose a guess.")
             print('**************************************************')
             continue
         # Reaching this line means the letter was found in goal
-        if x in letters:
-            print("You already guessed that. Try a different letter.\n")
-            print('**************************************************')
-            continue
+
         for i, letter in enumerate(goal):
             if letter == x:
                 board[i] = x
         letters.append(x)
-        print("Good guess! You gain a guess.\n")
+        print('**************************************************')
+        print("Good guess! You gain a guess.")
         print('**************************************************')
         guesses += 1
         # Check if the board is completed
         if '_' not in board:
+            print('**************************************************')
             print("Congratulations! You solved the word!")
+            print('**************************************************')
             for letter in board:
                 print(letter, end=' ')
+            print('\n')
             break
         continue
-
-
+    return guesses
 
 def confirm_path(filepath):
     """Returns true if a file exists with the given file path name"""
