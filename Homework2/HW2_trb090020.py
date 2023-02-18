@@ -1,7 +1,7 @@
 # AUTHOR: Thomas Bennett - trb090020
 # COURSE: 4395.001 - UTD Spring 2023
 # ASSIGNMENT: 2 - Word Guess Game
-
+import random
 import sys
 import pathlib
 from nltk import pos_tag
@@ -69,8 +69,52 @@ def makegamedata(tokenlist, nounlist):
 def guessgame(gamedict):
     """Plays Word Guess Game with the user"""
     print("Welcome to Word Guess Game!")
-    top_fifty = [sorted(gamedict, key=gamedict.get, reverse=True)]
+    top_fifty = sorted(gamedict, key=gamedict.get, reverse=True)
     print(top_fifty)
+    # Get a random element from top_fifty.
+    # Generate a random number (integer) between 0 and 49.
+    rand_num = random.randint(0, 49)
+    print("Random integer:", rand_num, sep=' ')
+    goal = top_fifty[rand_num]
+    board = ["_" for i in goal]
+    guesses = 5
+    print(goal, board, sep='\n')
+    while True:
+        # Beginning of round - show board and remaining guesses
+        print(guesses, " guesses remaining", sep='')
+        for letter in board:
+            print(letter, end=' ')
+        # If zero guesses remain, print game over - failure message and break
+        if guesses < 1:
+            print("You ran out of guesses, game over!")
+            break
+        # Prompt for user input
+        print("Try to guess a letter in the word:")
+        x = str(input())
+        # Check that the input was a single letter
+        if not len(x) == 1 and x.isalpha():
+            print("Invalid input! You entered: ", x, sep='')
+            print("Please only enter a single letter")
+            continue
+        # Check if the input letter is in the word
+        if x not in goal:
+            guesses -= 1
+            print("Bad luck! You lose a guess.")
+            continue
+        # Reaching this line means the letter was found in goal
+        for i, letter in enumerate(goal):
+            if letter == x:
+                board[i] = x
+        print("Good guess! You gain a guess.")
+        guesses += 1
+        # Check if the board is completed
+        if '_' not in board:
+            print("Congratulations! You solved the word!")
+            for letter in board:
+                print(letter, end=' ')
+            break
+        continue
+
 
 
 def confirm_path(filepath):
