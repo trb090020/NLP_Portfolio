@@ -15,6 +15,7 @@ Collection of my work from CS 4395, Human Language Technologies
 ### Assignment 4 - Ngrams
 [Program 1](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework4/HW4_Program1_trb090020.py)  
 [Program 2](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework4/HW4_Program2_trb090020.py)
+[Narrative](https://github.com/trb090020/NLP_Portfolio/blob/6642d6cb34be9f855219e20aa2d5cf4862c8747c/Homework4/HW4_narrative_trb090020.pdf)
 ### Assignment 5 - Sentence Parsing
 [Sentence Parsing - *Self-Defense* by Monty Python](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework5/HW5-trb090020.pdf)
 ## Extras
