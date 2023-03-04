@@ -13,7 +13,7 @@ Collection of my work from CS 4395, Human Language Technologies
 ### Assignment 3 - WordNet
 [Notebook](https://github.com/trb090020/NLP_Portfolio/blob/a2fdf0479711603ab54df703fb3df50033c5a694/Homework3/HW3_trb090020.pdf)
 ### Assignment 4 - Ngrams
-[Program 1](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework4/HW4_Program1_trb090020.py)
+[Program 1](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework4/HW4_Program1_trb090020.py)  
 [Program 2](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework4/HW4_Program2_trb090020.py)
 ### Assignment 5 - Sentence Parsing
 [Sentence Parsing - *Self-Defense* by Monty Python](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework5/HW5-trb090020.pdf)
