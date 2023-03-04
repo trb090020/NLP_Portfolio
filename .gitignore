@@ -5,3 +5,10 @@
 /Homework4/LangId.train.English
 /Homework4/LangId.train.French
 /Homework4/LangId.train.Italian
+/Homework4/eng_bigram_data.p
+/Homework4/eng_unigram_data.p
+/Homework4/fra_bigram_data.p
+/Homework4/fra_unigram_data.p
+/Homework4/ita_bigram_data.p
+/Homework4/ita_unigram_data.p
+/Homework4/LangId.sol
