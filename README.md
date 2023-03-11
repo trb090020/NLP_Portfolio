@@ -19,6 +19,9 @@ Collection of my work from CS 4395, Human Language Technologies
 ### Homework 5 - Sentence Parsing
 [Sentence Parsing - *Self-Defense* by Monty Python](https://github.com/trb090020/NLP_Portfolio/blob/8c588bcd3825b67b063d463afd8456494aebcf09/Homework5/HW5-trb090020.pdf)
 ### Homework 6 - Web Crawler
+[Web Scraper - History of The Texas Rangers](https://github.com/trb090020/NLP_Portfolio/blob/a14f8edb751299a74316370ca8f7d0cd0c05510e/Homework6/HW6_trb090020.py)  
+[Web Scraper Narrative](https://github.com/trb090020/NLP_Portfolio/blob/a14f8edb751299a74316370ca8f7d0cd0c05510e/Homework6/Web-Scraper-Narrative.pdf)  
+
 ## Extras
 ### NLTK
 nemo_app
