@@ -21,7 +21,9 @@ Collection of my work from CS 4395, Human Language Technologies
 ### Homework 6 - Web Crawler
 [Web Scraper - History of The Texas Rangers](https://github.com/trb090020/NLP_Portfolio/blob/a14f8edb751299a74316370ca8f7d0cd0c05510e/Homework6/HW6_trb090020.py)  
 [Web Scraper Narrative](https://github.com/trb090020/NLP_Portfolio/blob/a14f8edb751299a74316370ca8f7d0cd0c05510e/Homework6/Web-Scraper-Narrative.pdf)  
-
+### Homework 7 - ACL Paper
+### Homework 8 - Text Classification 1
+[Fake News vs Satire](https://github.com/trb090020/NLP_Portfolio/blob/9066ccd8b28e42626a67021d5932c1f46e4436ef/Homework8/HW8_trb090020.pdf)
 ## Extras
 ### NLTK
 nemo_app
