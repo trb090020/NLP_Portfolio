@@ -29,7 +29,8 @@ if __name__ == '__main__':
         datafile = pathlib.Path.cwd().joinpath(sys.argv[1])
         # Check if the file exists
         if confirm_path(datafile):
-            print('Welcome to python-chat, a chatbot which imitates Monty Python!')
+            print('Welcome to python-chat!')
+            print("This chatbot will carry on a dialogue based on quotes from Monty Python's Flying Circus")
             print('Enter "Quit" at any time to quit chatting.')
             print(f'Welcome back, {sys.argv[1]}')
             # load the file for the user
@@ -44,7 +45,8 @@ if __name__ == '__main__':
         else:
             print(f'User name: {sys.argv[1]} was not found, creating a new user profile...')
             # create a file for the user
-            print('Welcome to python-chat, a chatbot which imitates Monty Python!')
+            print('Welcome to python-chat!')
+            print("This chatbot will carry on a dialogue based on quotes from Monty Python's Flying Circus")
             print('Enter "Quit" at any time to quit chatting.')
             while True:
                 # chat until the user enters 'quit'
