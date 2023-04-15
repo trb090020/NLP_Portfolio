@@ -4,13 +4,43 @@
 
 import sys
 import pathlib
+import pickle
+import pprint
+"""
+python-chat.py - A Monty Python's Flying Circus Chatbot
 
+This program uses a dict of sentences from Monty Python's Flying Circus to tell you what the
+next sentence after a line that the user provides is.
 
-def chat():
+Example run:
+    user>Next we have number four, 'Crunchy Frog'.
+    bot>'An, yes.'
+    user>Am I right in thinking there's a real frog in here?
+    bot>'Yes.'
+    user>What sort of frog?
+    bot>'A dead frog.'
+    user>Is it cooked?
+    bot>'No.'
+    user>What, a raw frog?
+    bot>('We use only the finest baby frogs, dew-picked and flown from Iraq, cleansed in the finest quality spring water, lightly '
+        'killed, and then sealed in a succulent Swiss quintuple smooth treble cream milk chocolate envelope, and lovingly frosted '
+        'with glucose.')
+"""
+
+def chat(prev_next):
+
     # get user input
     x = input()
+    # check if the user entered 'quit'
+    if x.lower() in ['quit']:
+        return x
     # respond
-    print(f'You said: {x}')
+    try:
+        next_sentence = prev_next[x]['next']
+        pprint.pprint(next_sentence, width=125)
+    except KeyError:
+        print('Sorry, that sentence was not found.')
+
     # return the user input to be saved in their user file
     return x
 
@@ -25,6 +55,8 @@ if __name__ == '__main__':
     if not len(sys.argv) == 2:
         print('Provide your name as an argument')
     else:
+        # load the prev_next dict
+        prev_next = pickle.load(open('flying_circus_prev_next.pickle', 'rb'))
         # Form a Path object
         datafile = pathlib.Path.cwd().joinpath(sys.argv[1])
         # Check if the file exists
@@ -36,7 +68,7 @@ if __name__ == '__main__':
             # load the file for the user
             while True:
                 # chat with the user until the user enters "Quit"
-                chat_instance = chat()
+                chat_instance = chat(prev_next)
                 if not chat_instance.lower() in ['quit']:
                     continue
                 # fall-through break to prevent infinite loop
@@ -50,7 +82,7 @@ if __name__ == '__main__':
             print('Enter "Quit" at any time to quit chatting.')
             while True:
                 # chat until the user enters 'quit'
-                chat_instance = chat()
+                chat_instance = chat(prev_next)
                 if not chat_instance.lower() in ['quit']:
                     continue
                 # fall-through break to prevent infinite loop

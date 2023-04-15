@@ -22,20 +22,20 @@ if __name__ == '__main__':
 
     # get the text
     corpus = []
-    for i, link in enumerate(links):
-        text = ''
+    for link in links:
         # request
         url = link
         html = request.urlopen(url)
         # make the soup
         soup = BS(html, features='html.parser')
-        # get the web page text
-        lines = soup.find_all('font')
-        lines_text = ''
-        for line in lines:
-            lines_text += ' '.join(line.get_text().splitlines()) + ' '
+        # get all the elements labeled by actor names
+        elements = soup.find_all('font')
+        episodes_text = ''
+        episode_lines = []
+        for element in elements:
+            episodes_text += ' '.join(element.get_text().splitlines()) + ' '
 
-        corpus.append(lines_text)
+        corpus.append(episodes_text)
 
     corpus_sentences = []
     for episode in corpus:
