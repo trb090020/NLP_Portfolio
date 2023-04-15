@@ -29,6 +29,7 @@ Example run:
         'with glucose.')
 """
 
+
 def chat(prev_next):
 
     # get user input
@@ -60,25 +61,34 @@ if __name__ == '__main__':
         # load the prev_next dict
         prev_next = pickle.load(open('flying_circus_prev_next.pickle', 'rb'))
         # Form a Path object
-        datafile = pathlib.Path.cwd().joinpath(sys.argv[1])
+        datafile = pathlib.Path.cwd().joinpath(sys.argv[1] + ".pickle")
         # Check if the file exists
         if confirm_path(datafile):
             print('Welcome to python-chat!')
             print("This chatbot will carry on a dialogue based on quotes from Monty Python's Flying Circus")
             print('Enter "Quit" at any time to quit chatting.')
             print(f'Welcome back, {sys.argv[1]}')
+
             # load the file for the user
+            user_file = pickle.load(open(sys.argv[1] + ".pickle", 'rb'))
+            print(f'Your last used prompt was: {user_file[1]}')
             while True:
                 # chat with the user until the user enters "Quit"
                 chat_instance = chat(prev_next)
                 if not chat_instance.lower() in ['quit']:
+                    user_file[1] = chat_instance
                     continue
+                with open(sys.argv[1] + '.pickle', 'wb') as f:
+                    pickle.dump(user_file, f, pickle.HIGHEST_PROTOCOL)
                 # fall-through break to prevent infinite loop
                 break
 
         else:
             print(f'User name: {sys.argv[1]} was not found, creating a new user profile...')
             # create a file for the user
+            new_user_file = [sys.argv[1], '']
+            with open(sys.argv[1] + '.pickle', 'wb') as f:
+                pickle.dump(new_user_file, f, pickle.HIGHEST_PROTOCOL)
             print('Welcome to python-chat!')
             print("This chatbot will carry on a dialogue based on quotes from Monty Python's Flying Circus")
             print('Enter "Quit" at any time to quit chatting.')
@@ -86,6 +96,9 @@ if __name__ == '__main__':
                 # chat until the user enters 'quit'
                 chat_instance = chat(prev_next)
                 if not chat_instance.lower() in ['quit']:
+                    new_user_file[1] = chat_instance
                     continue
+                with open(sys.argv[1] + '.pickle', 'wb') as f:
+                    pickle.dump(new_user_file, f, pickle.HIGHEST_PROTOCOL)
                 # fall-through break to prevent infinite loop
                 break
