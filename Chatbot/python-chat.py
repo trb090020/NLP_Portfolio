@@ -9,6 +9,8 @@ import pprint
 """
 python-chat.py - A Monty Python's Flying Circus Chatbot
 
+Source: https://www.ibras.dk/montypython/justthewords.htm
+
 This program uses a dict of sentences from Monty Python's Flying Circus to tell you what the
 next sentence after a line that the user provides is.
 

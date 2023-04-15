@@ -3,6 +3,9 @@ Collection of my work from CS 4395, Human Language Technologies
 
 ## Portfolio Assignments
 ### Project - Chatbot
+[Chatbot script](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-chat.py)  
+[Web Scraper](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-scraper.py)  
+[Dictionary script](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-dict.py)  
 ### Homework 0 - Overview of NLP
 [Overview of NLP](https://github.com/trb090020/NLP_Portfolio/blob/main/Overview%20of%20NLP.pdf)
 ### Homework 1 - Text Processing
