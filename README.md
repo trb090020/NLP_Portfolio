@@ -30,7 +30,5 @@ Collection of my work from CS 4395, Human Language Technologies
 ### Homework 8 - Text Classification 1
 [Fake News vs Satire](https://github.com/trb090020/NLP_Portfolio/blob/9066ccd8b28e42626a67021d5932c1f46e4436ef/Homework8/HW8_trb090020.pdf)
 ### Homework 9 - Text Classification 2  
-[News Category Dataset]()
-## Extras
-### NLTK
-nemo_app
+[News Category Dataset](https://github.com/trb090020/NLP_Portfolio/blob/8f796d549a96133312d16312b0a5d7561a680123/Homework9/Text-Classification-2.pdf)
+
