@@ -29,6 +29,8 @@ Collection of my work from CS 4395, Human Language Technologies
 [ACL Paper Summary - Mehta et al.](https://github.com/trb090020/NLP_Portfolio/blob/9fcc90b8bc16db37800beed1d4006d000321af38/Homework7/ACL%20Paper%20Summary.pdf)
 ### Homework 8 - Text Classification 1
 [Fake News vs Satire](https://github.com/trb090020/NLP_Portfolio/blob/9066ccd8b28e42626a67021d5932c1f46e4436ef/Homework8/HW8_trb090020.pdf)
+### Homework 9 - Text Classification 2  
+[News Category Dataset]()
 ## Extras
 ### NLTK
 nemo_app
