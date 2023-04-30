@@ -1,6 +1,9 @@
 # NLP_Portfolio
 Collection of my work from CS 4395, Human Language Technologies
-
+## Summary
+I can definitely see myself using NLP skills in my career. I have learned a lot about how to make programs able to understand user input even if the input is not exactly what the program expects. Users expect that software is ‘intelligent’ and able to understand the gist of what they are getting at even if they do not give precise inputs. I will also most certainly use the machine learning techniques I developed in this course in other tasks. I can see how computer vision and text classification tasks could be combined to give programs the ability to not only detect objects and text in an image, but to also provide deeper context as to what the image is. I plan to keep playing around with the chatbot I created for quote chaining, and I will definitely keep up with NLP development as it continues to mature and becomes ubiquitous throughout technology spaces.
+## NLP Skills
+[Hard and soft skills developed in this course]()
 ## Portfolio Assignments
 ### Project - Chatbot
 [Chatbot script](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-chat.py)  
