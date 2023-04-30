@@ -6,7 +6,7 @@ I can definitely see myself using NLP skills in my career. I have learned a lot 
 [Hard and soft skills developed in this course](https://github.com/trb090020/NLP_Portfolio/blob/840ad01511cdd79e6e4abb06a47b5a239985407b/NLP-Wrapup.pdf)
 ## Portfolio Assignments
 ### Project - Chatbot
-[Report](https://github.com/trb090020/NLP_Portfolio/blob/1cc1ed0a1415ac18a8dcc6f049d5aba681633e44/Chatbot/Chatbot%20Report.pdf)
+[Report](https://github.com/trb090020/NLP_Portfolio/blob/1cc1ed0a1415ac18a8dcc6f049d5aba681633e44/Chatbot/Chatbot%20Report.pdf)  
 [Chatbot script](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-chat.py)  
 [Web Scraper](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-scraper.py)  
 [Dictionary script](https://github.com/trb090020/NLP_Portfolio/blob/fc107b23684a91291bd00a71472fbcce9f8df86f/Chatbot/python-dict.py)  
